@@ -36,6 +36,69 @@ final class FrequenciesTest extends TestCase
         $this->assertEquals($expression, $this->getExpression());
     }
 
+    public function testMondays(): void
+    {
+        $expression = '* * * * 1';
+
+        $this->mondays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testTuesdays(): void
+    {
+        $expression = '* * * * 2';
+
+        $this->tuesdays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testWednesdays(): void
+    {
+        $expression = '* * * * 3';
+
+        $this->wednesdays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testThursdays(): void
+    {
+        $expression = '* * * * 4';
+
+        $this->thursdays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testFridays(): void
+    {
+        $expression = '* * * * 5';
+
+        $this->fridays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testSaturdays(): void
+    {
+        $expression = '* * * * 6';
+
+        $this->saturdays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testSundays(): void
+    {
+        $expression = '* * * * 7';
+
+        $this->sundays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testDays(): void
     {
         $expression = '* * * * 1,3,5';

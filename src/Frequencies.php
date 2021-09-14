@@ -21,6 +21,41 @@ trait Frequencies
         return $this->replaceIntoExpression(1, [0, "{$firstHour},{$lastHour}"]);
     }
 
+    public function mondays(): self
+    {
+        return $this->days(1);
+    }
+
+    public function tuesdays(): self
+    {
+        return $this->days(2);
+    }
+
+    public function wednesdays(): self
+    {
+        return $this->days(3);
+    }
+
+    public function thursdays(): self
+    {
+        return $this->days(4);
+    }
+
+    public function fridays(): self
+    {
+        return $this->days(5);
+    }
+
+    public function saturdays(): self
+    {
+        return $this->days(6);
+    }
+
+    public function sundays(): self
+    {
+        return $this->days(7);
+    }
+
     public function days(int ...$days): self
     {
         return $this->replaceIntoExpression(5, [implode(',', $days)]);
