@@ -18,7 +18,7 @@ trait Frequencies
 
     public function everyMinute(): self
     {
-        return $this->setExpression($this->getExpression());
+        return $this->setExpression('* * * * *');
     }
 
     public function everyFiveMinutes(): self
