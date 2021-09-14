@@ -99,6 +99,24 @@ final class FrequenciesTest extends TestCase
         $this->assertEquals($expression, $this->getExpression());
     }
 
+    public function testWeekdays(): void
+    {
+        $expression = '* * * * 1,2,3,4,5';
+
+        $this->weekdays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testWeekends(): void
+    {
+        $expression = '* * * * 6,7';
+
+        $this->weekends();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testDays(): void
     {
         $expression = '* * * * 1,3,5';

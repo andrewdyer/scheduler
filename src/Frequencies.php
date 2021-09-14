@@ -56,6 +56,16 @@ trait Frequencies
         return $this->days(7);
     }
 
+    public function weekdays(): self
+    {
+        return $this->days(1, 2, 3, 4, 5);
+    }
+
+    public function weekends(): self
+    {
+        return $this->days(6, 7);
+    }
+
     public function days(int ...$days): self
     {
         return $this->replaceIntoExpression(5, [implode(',', $days)]);

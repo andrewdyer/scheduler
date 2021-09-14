@@ -13,6 +13,8 @@
 | fridays() | At every minute on Friday |
 | saturdays() | At every minute on Saturday |
 | sundays() | At every minute on Sunday |
+| weekdays() | At every minute on Monday, Tuesday, Wednesday, Thursday, and Friday |
+| weekends() | At every minute on Saturday and Sunday |
 | days(int ...$days) | At every minute on specific days |
 | everyMinute() | At every minute |
 | everyFiveMinutes() | At every 5th minute |
