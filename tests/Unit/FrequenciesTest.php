@@ -1,6 +1,6 @@
 <?php
 
-namespace Anddye\Scheduler\Tests;
+namespace Anddye\Scheduler\Tests\Unit;
 
 use Anddye\Scheduler\Frequencies;
 use PHPUnit\Framework\TestCase;
