@@ -6,32 +6,32 @@ trait Frequencies
 {
     public $expression = '* * * * *';
 
-    public function dailyAt(int $hour, int $minute)
+    public function dailyAt(int $hour, int $minute): self
     {
         return $this->replaceIntoExpression(1, [$minute, $hour]);
     }
 
-    public function everyMinute()
+    public function everyMinute(): self
     {
         return $this->setExpression($this->getExpression());
     }
 
-    public function everyFiveMinutes()
+    public function everyFiveMinutes(): self
     {
         return $this->replaceIntoExpression(1, ['*/5']);
     }
 
-    public function everyTenMinutes()
+    public function everyTenMinutes(): self
     {
         return $this->replaceIntoExpression(1, ['*/10']);
     }
 
-    public function everyFifteenMinutes()
+    public function everyFifteenMinutes(): self
     {
         return $this->replaceIntoExpression(1, ['*/15']);
     }
 
-    public function everyThirtyMinutes()
+    public function everyThirtyMinutes(): self
     {
         return $this->replaceIntoExpression(1, ['*/30']);
     }
@@ -41,7 +41,7 @@ trait Frequencies
         return $this->expression;
     }
 
-    public function replaceIntoExpression(int $position, array $value)
+    public function replaceIntoExpression(int $position, array $value): self
     {
         $expression = explode(' ', $this->getExpression());
 
