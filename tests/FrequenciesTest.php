@@ -72,6 +72,15 @@ final class FrequenciesTest extends TestCase
         $this->assertEquals($expression, $this->getExpression());
     }
 
+    public function testHourlyAt(): void
+    {
+        $expression = '20 * * * *';
+
+        $this->hourlyAt(20);
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testReplaceIntoExpression(): void
     {
         $expression = '*/15 * * * *';

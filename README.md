@@ -10,3 +10,4 @@
 | everyTenMinutes() | At every 10th minute|
 | everyFifteenMinutes() | At every 15th minute |
 | everyThirtyMinutes() | At every 30th minute |
+| hourlyAt(int $minute) | Every hour at a specific minute |
