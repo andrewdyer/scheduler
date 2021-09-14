@@ -10,5 +10,5 @@
 | everyTenMinutes() | At every 10th minute|
 | everyFifteenMinutes() | At every 15th minute |
 | everyThirtyMinutes() | At every 30th minute |
-| hourly() | At minute 1 |
+| hourly() | Every hour at minute 1 |
 | hourlyAt(int $minute) | Every hour at a specific minute |
