@@ -11,6 +11,26 @@ trait Frequencies
         return $this->setExpression($this->getExpression());
     }
 
+    public function everyFiveMinutes()
+    {
+        return $this->replaceIntoExpression(1, ['*/5']);
+    }
+
+    public function everyTenMinutes()
+    {
+        return $this->replaceIntoExpression(1, ['*/10']);
+    }
+
+    public function everyFifteenMinutes()
+    {
+        return $this->replaceIntoExpression(1, ['*/15']);
+    }
+
+    public function everyThirtyMinutes()
+    {
+        return $this->replaceIntoExpression(1, ['*/30']);
+    }
+
     public function getExpression(): string
     {
         return $this->expression;
