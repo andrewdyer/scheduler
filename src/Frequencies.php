@@ -6,6 +6,11 @@ trait Frequencies
 {
     public $expression = '* * * * *';
 
+    public function everyMinute()
+    {
+        return $this->setExpression($this->getExpression());
+    }
+
     public function getExpression(): string
     {
         return $this->expression;
