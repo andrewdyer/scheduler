@@ -56,6 +56,11 @@ trait Frequencies
         return $this->replaceIntoExpression(1, [$minute]);
     }
 
+    public function monthly(): self
+    {
+        return $this->monthlyOn(1);
+    }
+
     public function monthlyOn(int $day): self
     {
         return $this->replaceIntoExpression(1, [0, 0, $day]);

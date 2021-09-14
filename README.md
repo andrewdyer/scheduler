@@ -12,4 +12,5 @@
 | everyThirtyMinutes() | At every 30th minute |
 | hourly() | Every hour at minute 1 |
 | hourlyAt(int $minute) | Every hour at a specific minute |
+| monthly() | At 00:00 on day-of-month 1 |
 | monthlyOn(int $day) | At 00:00 on a specific day-of-month |

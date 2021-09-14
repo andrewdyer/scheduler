@@ -90,6 +90,15 @@ final class FrequenciesTest extends TestCase
         $this->assertEquals($expression, $this->getExpression());
     }
 
+    public function testMonthly(): void
+    {
+        $expression = '0 0 1 * *';
+
+        $this->monthly();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testMonthlyOn(): void
     {
         $expression = '0 0 1 * *';
