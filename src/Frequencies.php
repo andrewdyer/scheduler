@@ -6,6 +6,11 @@ trait Frequencies
 {
     public $expression = '* * * * *';
 
+    public function daily(): self
+    {
+        return $this->dailyAt(0, 0);
+    }
+
     public function dailyAt(int $hour, int $minute): self
     {
         return $this->replaceIntoExpression(1, [$minute, $hour]);

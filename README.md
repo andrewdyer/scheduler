@@ -3,6 +3,7 @@
 ## Frequencies
 | Method | Description |
 | --- | --- |
+| daily()| Every day at midnight |
 | dailyAt(int $hour, int $minute)| Every day at a specific hour and minute |
 | everyMinute() | At every minute |
 | everyFiveMinutes() | At every 5th minute |
