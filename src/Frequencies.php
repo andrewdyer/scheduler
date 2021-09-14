@@ -46,6 +46,11 @@ trait Frequencies
         return $this->expression;
     }
 
+    public function hourly(): self
+    {
+        return $this->hourlyAt(1);
+    }
+
     public function hourlyAt(int $minute): self
     {
         return $this->replaceIntoExpression(1, [$minute]);
