@@ -1,0 +1,28 @@
+{
+    "name": "andrewdyer/scheduler",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Dyer",
+            "email": "andrewdyer@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Anddye\\Scheduler\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Anddye\\Scheduler\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
