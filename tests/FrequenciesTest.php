@@ -101,9 +101,9 @@ final class FrequenciesTest extends TestCase
 
     public function testMonthlyOn(): void
     {
-        $expression = '0 0 1 * *';
+        $expression = '0 0 25 * *';
 
-        $this->monthlyOn(1);
+        $this->monthlyOn(25);
 
         $this->assertEquals($expression, $this->getExpression());
     }
