@@ -9,6 +9,15 @@ final class FrequenciesTest extends TestCase
 {
     use Frequencies;
 
+    public function testReplaceIntoExpression(): void
+    {
+        $expression = '*/15 * * * *';
+
+        $this->replaceIntoExpression(1, ['*/15']);
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testSetExpression(): void
     {
         $expression = '*/15 * * * *';
