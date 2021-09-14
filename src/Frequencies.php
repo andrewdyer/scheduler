@@ -21,6 +21,11 @@ trait Frequencies
         return $this->replaceIntoExpression(1, [0, "{$firstHour},{$lastHour}"]);
     }
 
+    public function days(int ...$days): self
+    {
+        return $this->replaceIntoExpression(5, [implode(',', $days)]);
+    }
+
     public function everyMinute(): self
     {
         return $this->setExpression('* * * * *');

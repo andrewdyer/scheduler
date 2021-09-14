@@ -36,6 +36,15 @@ final class FrequenciesTest extends TestCase
         $this->assertEquals($expression, $this->getExpression());
     }
 
+    public function testDays(): void
+    {
+        $expression = '* * * * 1,3,5';
+
+        $this->days(1, 3, 5);
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testEveryMinute(): void
     {
         $expression = '* * * * *';
