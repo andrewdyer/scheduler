@@ -5,6 +5,7 @@
 | --- | --- |
 | daily()| Every day at midnight |
 | dailyAt(int $hour, int $minute)| Every day at a specific hour and minute |
+| dailyTwice(int $firstHour, int $lastHour) | At minute 0 past two specific hours |
 | everyMinute() | At every minute |
 | everyFiveMinutes() | At every 5th minute |
 | everyTenMinutes() | At every 10th minute|
