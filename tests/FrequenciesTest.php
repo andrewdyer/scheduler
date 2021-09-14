@@ -9,6 +9,42 @@ final class FrequenciesTest extends TestCase
 {
     use Frequencies;
 
+    public function testCombiningDailyTwiceWithMondays(): void
+    {
+        $expression = '0 2,14 * * 1';
+
+        $this->dailyTwice(2, 14)->mondays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testCombiningEveryFifteenMinutesWithFridays(): void
+    {
+        $expression = '*/15 * * * 5';
+
+        $this->everyFifteenMinutes()->fridays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testCombiningEveryMinuteWithDays(): void
+    {
+        $expression = '* * * * 2,4,6';
+
+        $this->everyMinute()->days(2, 4, 6);
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
+    public function testCombiningHourlyAtWithWeekdays(): void
+    {
+        $expression = '45 * * * 1,2,3,4,5';
+
+        $this->hourlyAt(45)->weekdays();
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testDaily(): void
     {
         $expression = '0 0 * * *';
