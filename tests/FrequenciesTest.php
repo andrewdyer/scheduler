@@ -9,6 +9,15 @@ final class FrequenciesTest extends TestCase
 {
     use Frequencies;
 
+    public function testDailyAt(): void
+    {
+        $expression = '30 1 * * *';
+
+        $this->dailyAt(1, 30);
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testEveryMinute(): void
     {
         $expression = '* * * * *';
