@@ -207,6 +207,15 @@ final class FrequenciesTest extends TestCase
         $this->assertEquals($expression, $this->getExpression());
     }
 
+    public function testOn(): void
+    {
+        $expression = '* * 4 * *';
+
+        $this->on(4);
+
+        $this->assertEquals($expression, $this->getExpression());
+    }
+
     public function testReplaceIntoExpression(): void
     {
         $expression = '*/15 * * * *';

@@ -121,6 +121,11 @@ trait Frequencies
         return $this->replaceIntoExpression(1, [0, 0, $day]);
     }
 
+    public function on(int $day): self
+    {
+        return $this->replaceIntoExpression(3, [$day]);
+    }
+
     public function replaceIntoExpression(int $position, array $value): self
     {
         $expression = explode(' ', $this->getExpression());
