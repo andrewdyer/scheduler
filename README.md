@@ -1,6 +1,9 @@
 # Scheduler
 Schedule events with this framework-agnostic cron scheduler, which can be easily integrated into your existing project or run as a standalone command scheduler.
 
+## License
+Licensed under MIT. Totally free for private or commercial projects.
+
 ## Installation
 ```text
 composer require andrewdyer/scheduler
