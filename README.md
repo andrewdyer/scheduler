@@ -28,8 +28,8 @@ $scheduler->addEvent(new App\Events\SendReminderEvent())->setExpression('*/15 * 
 $scheduler->run();
 ```
 
-## Frequency Helpers
-| Helper | Runs... |
+### Event Frequencies
+| Helper Method | Runs... |
 | --- | --- |
 | daily()| At 00:00 |
 | dailyAt(int $hour, int $minute)| At a specific hour and minute |
