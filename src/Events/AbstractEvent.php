@@ -6,11 +6,13 @@ use Anddye\Scheduler\Frequencies;
 use Cron\CronExpression;
 use DateTimeInterface;
 
-abstract class AbstractEvent implements EventInterface
+abstract class AbstractEvent
 {
     use Frequencies;
 
     private $expression = '* * * * *';
+
+    abstract public function handle(): void;
 
     public function isDueToRun(DateTimeInterface $date): bool
     {
