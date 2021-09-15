@@ -1,4 +1,5 @@
 # Scheduler
+Schedule events with this framework agnostic cron scheduler, which can be easily integrated into your existing project or run as a standalone command scheduler.
 
 ## Installation
 ```text
