@@ -24,7 +24,7 @@ class SendReminderEvent extends Event
 ```php
 // index.php
 $scheduler = new Anddye\Scheduler\Scheduler();
-$scheduler->addEvent(new App\Events\SendReminderEvent())->daily();
+$scheduler->addEvent(new App\Events\SendReminderEvent())->setExpression('*/15 * * * *');
 $scheduler->run();
 ```
 
