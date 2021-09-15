@@ -5,8 +5,31 @@
 composer require andrewdyer/scheduler
 ```
 
+## Usage
+```php
+// SendReminderEvent.php
+namespace App\Events;
+
+use Anddye\Scheduler\Event;
+
+class SendReminderEvent extends Event
+{
+    public function handle(): void
+    {
+        // TODO: Send reminder to user somehow
+    }
+}
+```
+
+```php
+// index.php
+$scheduler = new Anddye\Scheduler\Scheduler();
+$scheduler->addEvent(new App\Events\SendReminderEvent())->daily();
+$scheduler->run();
+```
+
 ## Frequency Helpers
-| Helper | Description |
+| Helper | Runs... |
 | --- | --- |
 | daily()| At 00:00 |
 | dailyAt(int $hour, int $minute)| At a specific hour and minute |
