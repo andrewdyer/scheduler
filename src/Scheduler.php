@@ -7,8 +7,13 @@ use DateTimeInterface;
 
 class Scheduler
 {
-    private $date;
+    private $datetime;
     private $events = [];
+
+    public function __construct(DateTimeInterface $datetime = null)
+    {
+        $this->datetime = $datetime;
+    }
 
     public function addEvent(Event $event): Event
     {
@@ -17,13 +22,13 @@ class Scheduler
         return $event;
     }
 
-    public function getDate(): DateTimeInterface
+    public function getDatetime(): DateTimeInterface
     {
-        if (!$this->date) {
+        if (!$this->datetime) {
             return new DateTime();
         }
 
-        return $this->date;
+        return $this->datetime;
     }
 
     public function getEvents(): array
@@ -34,18 +39,11 @@ class Scheduler
     public function run(): void
     {
         foreach ($this->getEvents() as $event) {
-            if (!$event->isDueToRun(new DateTime())) {
+            if (!$event->isDueToRun($this->getDatetime())) {
                 continue;
             }
 
             $event->handle();
         }
-    }
-
-    public function setDate(DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 }

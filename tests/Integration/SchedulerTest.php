@@ -27,14 +27,13 @@ final class SchedulerTest extends TestCase
         $this->assertEquals([], $scheduler->getEvents());
     }
 
-    public function testCanSetDate()
+    public function testCanSetDateTime()
     {
-        $date = new DateTime('2021-09-15');
+        $datetime = new DateTime('2021-09-15');
 
-        $scheduler = new Scheduler();
-        $scheduler->setDate($date);
+        $scheduler = new Scheduler($datetime);
 
-        $this->assertEquals($date, $scheduler->getDate());
+        $this->assertEquals($datetime, $scheduler->getDatetime());
     }
 
     public function testDoesNotRunUnexpectedEvent(): void
@@ -42,10 +41,13 @@ final class SchedulerTest extends TestCase
         $event = $this->getMockForAbstractClass(Event::class);
         $event->expects($this->never())->method('handle');
 
-        $scheduler = new Scheduler();
-        $scheduler->setDate(new DateTime('2021-09-15'));
+        $datetime = new DateTime('2021-09-15');
+
+        $scheduler = new Scheduler($datetime);
         $scheduler->addEvent($event)->weekends();
         $scheduler->run();
+
+        $this->assertEquals($datetime, $scheduler->getDatetime());
     }
 
     public function testRunsExpectedEvent(): void
@@ -53,9 +55,12 @@ final class SchedulerTest extends TestCase
         $event = $this->getMockForAbstractClass(Event::class);
         $event->expects($this->once())->method('handle');
 
-        $scheduler = new Scheduler();
-        $scheduler->setDate(new DateTime('2021-09-15'));
+        $datetime = new DateTime('2021-09-15');
+
+        $scheduler = new Scheduler($datetime);
         $scheduler->addEvent($event)->weekdays();
         $scheduler->run();
+
+        $this->assertEquals($datetime, $scheduler->getDatetime());
     }
 }
