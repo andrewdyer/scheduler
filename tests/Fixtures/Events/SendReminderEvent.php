@@ -2,9 +2,9 @@
 
 namespace Anddye\Scheduler\Tests\Fixtures\Events;
 
-use Anddye\Scheduler\Events\AbstractEvent;
+use Anddye\Scheduler\Event;
 
-class SendReminderEvent extends AbstractEvent
+class SendReminderEvent extends Event
 {
     public function handle(): void
     {

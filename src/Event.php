@@ -1,12 +1,11 @@
 <?php
 
-namespace Anddye\Scheduler\Events;
+namespace Anddye\Scheduler;
 
-use Anddye\Scheduler\Frequencies;
 use Cron\CronExpression;
 use DateTimeInterface;
 
-abstract class AbstractEvent
+abstract class Event
 {
     use Frequencies;
 
