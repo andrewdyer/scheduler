@@ -1,5 +1,10 @@
 # Scheduler
 
+## Installation
+```text
+composer require andrewdyer/scheduler
+```
+
 ## Frequency Helpers
 | Helper | Description |
 | --- | --- |
