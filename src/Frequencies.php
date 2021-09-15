@@ -4,8 +4,6 @@ namespace Anddye\Scheduler;
 
 trait Frequencies
 {
-    public $expression = '* * * * *';
-
     public function daily(): self
     {
         return $this->dailyAt(0, 0);
