@@ -54,3 +54,24 @@ $scheduler->run();
 | monthly() | At 00:00 on day-of-month 1 |
 | monthlyOn(int $day) | At 00:00 on a specific day-of-month |
 | on(int $day) | At every minute on a specific day-of-month |
+
+### Combining Event Frequencies
+```php
+// At minute 0 past hour 2 and 14 on Monday
+$scheduler->addEvent(new App\Events\SendReminderEvent())->dailyTwice(2, 14)->mondays();
+```
+
+```php
+// At every 15th minute on Friday
+$scheduler->addEvent(new App\Events\SendReminderEvent())->everyFifteenMinutes()->fridays();
+```
+
+```php
+// At every minute on Tuesday, Thursday, and Saturday
+$scheduler->addEvent(new App\Events\SendReminderEvent())->everyMinute()->days(2, 4, 6);
+```
+
+```php
+// At minute 45 on Monday, Tuesday, Wednesday, Thursday, and Friday
+$scheduler->addEvent(new App\Events\SendReminderEvent())->hourlyAt(45)->weekdays();
+```
