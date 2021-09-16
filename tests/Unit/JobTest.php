@@ -10,21 +10,21 @@ final class JobTest extends TestCase
 {
     public function testIsDueToRun(): void
     {
-        $date = new DateTime('2021-09-13');
+        $currentTime = new DateTime('2021-09-13');
 
         $job = new SendReminderJob();
         $job->mondays();
 
-        $this->assertTrue($job->isDueToRun($date));
+        $this->assertTrue($job->isDueToRun($currentTime));
     }
 
     public function testIsNotDueToRun(): void
     {
-        $date = new DateTime('2021-09-13');
+        $currentTime = new DateTime('2021-09-13');
 
         $job = new SendReminderJob();
         $job->mondays();
 
-        $this->assertTrue($job->isDueToRun($date));
+        $this->assertTrue($job->isDueToRun($currentTime));
     }
 }

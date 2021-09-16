@@ -13,8 +13,8 @@ abstract class AbstractJob
 
     abstract public function handle(): void;
 
-    public function isDueToRun(DateTimeInterface $date): bool
+    public function isDueToRun(DateTimeInterface $currentTime): bool
     {
-        return (new CronExpression($this->getExpression()))->isDue($date);
+        return (new CronExpression($this->getExpression()))->isDue($currentTime);
     }
 }
