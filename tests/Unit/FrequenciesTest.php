@@ -50,6 +50,15 @@ final class FrequenciesTest extends TestCase
         $this->assertEquals($expression, $this->event->getExpression());
     }
 
+    public function testCombiningHourlyWithDays(): void
+    {
+        $expression = '25 * * * 1,3,5';
+
+        $this->event->hourly()->days(1,3,5);
+
+        $this->assertEquals($expression, $this->event->getExpression());
+    }
+
     public function testDaily(): void
     {
         $expression = '0 0 * * *';

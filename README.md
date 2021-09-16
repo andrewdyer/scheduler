@@ -84,3 +84,8 @@ $scheduler->addEvent(new App\Events\SendReminderEvent())->everyMinute()->days(2,
 // At minute 45 on Monday, Tuesday, Wednesday, Thursday, and Friday
 $scheduler->addEvent(new App\Events\SendReminderEvent())->hourlyAt(45)->weekdays();
 ```
+
+```php
+// At minute 1 on Monday, Wednesday, and Friday
+$scheduler->addEvent(new App\Events\SendReminderEvent())->hourly()->days(1,3,5);
+```
