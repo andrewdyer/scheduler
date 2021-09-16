@@ -52,7 +52,7 @@ final class FrequenciesTest extends TestCase
 
     public function testCombiningHourlyWithDays(): void
     {
-        $expression = '25 * * * 1,3,5';
+        $expression = '1 * * * 1,3,5';
 
         $this->job->hourly()->days(1, 3, 5);
 
