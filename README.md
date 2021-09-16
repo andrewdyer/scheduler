@@ -43,7 +43,7 @@ $scheduler->run();
 | daily()| At 00:00 | `$scheduler->addEvent($event)->daily()` |
 | dailyAt(int $hour, int $minute)| At a specific hour and minute | `$scheduler->addEvent($event)->dailyAt(12, 30)` |
 | dailyTwice(int $firstHour, int $lastHour) | At minute 0 past two specific hours | `$scheduler->addEvent($event)->dailyTwice(11, 23)` |
-| mondays() | At every minute on Monday | `$scheduler->addEvent($event)->monday()` |
+| mondays() | At every minute on Monday | `$scheduler->addEvent($event)->mondays()` |
 | tuesdays() | At every minute on Tuesday | `$scheduler->addEvent($event)->tuesdays()` |
 | wednesdays() | At every minute on Wednesday | `$scheduler->addEvent($event)->wednesdays()` |
 | thursdays() | At every minute on Thursday | `$scheduler->addEvent($event)->thursdays()` |
@@ -59,7 +59,7 @@ $scheduler->run();
 | everyFifteenMinutes() | At every 15th minute | `$scheduler->addEvent($event)->everyFifteenMinutes()` |
 | everyThirtyMinutes() | At every 30th minute | `$scheduler->addEvent($event)->everyThirtyMinutes()` |
 | hourly() | At minute 1 | `$scheduler->addEvent($event)->hourly()` |
-| hourlyAt(int $minute) | At a specific minute | `$scheduler->addEvent($event)->hourlyAt()` |
+| hourlyAt(int $minute) | At a specific minute | `$scheduler->addEvent($event)->hourlyAt(45)` |
 | monthly() | At 00:00 on day-of-month 1 | `$scheduler->addEvent($event)->monthly()` |
 | monthlyOn(int $day) | At 00:00 on a specific day-of-month | `$scheduler->addEvent($event)->monthlyOn(4)` |
 | on(int $day) | At every minute on a specific day-of-month | `$scheduler->addEvent($event)->on(1)` |
