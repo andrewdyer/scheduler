@@ -8,18 +8,18 @@ use DateTimeInterface;
 class Scheduler
 {
     private $datetime;
-    private $events = [];
+    private $jobs = [];
 
     public function __construct(DateTimeInterface $datetime = null)
     {
         $this->datetime = $datetime;
     }
 
-    public function addEvent(Event $event): Event
+    public function addJob(AbstractJob $job): AbstractJob
     {
-        $this->events[] = $event;
+        $this->jobs[] = $job;
 
-        return $event;
+        return $job;
     }
 
     public function getDatetime(): DateTimeInterface
@@ -31,19 +31,19 @@ class Scheduler
         return $this->datetime;
     }
 
-    public function getEvents(): array
+    public function getJobs(): array
     {
-        return $this->events;
+        return $this->jobs;
     }
 
     public function run(): void
     {
-        foreach ($this->getEvents() as $event) {
-            if (!$event->isDueToRun($this->getDatetime())) {
+        foreach ($this->getJobs() as $job) {
+            if (!$job->isDueToRun($this->getDatetime())) {
                 continue;
             }
 
-            $event->handle();
+            $job->handle();
         }
     }
 }

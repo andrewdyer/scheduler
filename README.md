@@ -1,5 +1,5 @@
 # Scheduler
-Schedule events with this framework-agnostic cron scheduler, which can be easily integrated into your existing project or run as a standalone command scheduler.
+Schedule jobs with this framework-agnostic cron scheduler, which can be easily integrated into your existing project or run as a standalone command scheduler.
 
 ## License
 Licensed under MIT. Totally free for private or commercial projects.
@@ -10,13 +10,14 @@ composer require andrewdyer/scheduler
 ```
 
 ## Usage
+
 ```php
-// SendReminderEvent.php
-namespace App\Events;
+// SendReminderJob.php
+namespace App\Jobs;
 
-use Anddye\Scheduler\Event;
+use Anddye\Scheduler\AbstractJob;
 
-class SendReminderEvent extends Event
+class SendReminderJob extends AbstractJob
 {
     public function handle(): void
     {
@@ -29,63 +30,63 @@ class SendReminderEvent extends Event
 // index.php
 $scheduler = new Anddye\Scheduler\Scheduler();
 
-// At every 45th minute, run the send reminder event.
-$scheduler->addEvent(new App\Events\SendReminderEvent())->setExpression('*/45 * * * *');
+// At every 45th minute, run the send reminder job.
+$scheduler->addJob(new App\Jobs\SendReminderJob())->setExpression('*/45 * * * *');
 
-// add more events ...
+// add more jobs ...
 
 $scheduler->run();
 ```
 
-### Event Frequencies
+### Job Frequencies
 | Helper Method | Runs... | Example |
 | --- | --- | --- |
-| daily()| At 00:00 | `$scheduler->addEvent($event)->daily()` |
-| dailyAt(int $hour, int $minute)| At a specific hour and minute | `$scheduler->addEvent($event)->dailyAt(12, 30)` |
-| dailyTwice(int $firstHour, int $lastHour) | At minute 0 past two specific hours | `$scheduler->addEvent($event)->dailyTwice(11, 23)` |
-| mondays() | At every minute on Monday | `$scheduler->addEvent($event)->mondays()` |
-| tuesdays() | At every minute on Tuesday | `$scheduler->addEvent($event)->tuesdays()` |
-| wednesdays() | At every minute on Wednesday | `$scheduler->addEvent($event)->wednesdays()` |
-| thursdays() | At every minute on Thursday | `$scheduler->addEvent($event)->thursdays()` |
-| fridays() | At every minute on Friday | `$scheduler->addEvent($event)->fridays()` |
-| saturdays() | At every minute on Saturday | `$scheduler->addEvent($event)->saturdays()` |
-| sundays() | At every minute on Sunday | `$scheduler->addEvent($event)->sundays()` |
-| weekdays() | At every minute on Monday, Tuesday, Wednesday, Thursday, and Friday | `$scheduler->addEvent($event)->weekdays()` |
-| weekends() | At every minute on Saturday and Sunday | `$scheduler->addEvent($event)->weekends()` |
-| days(int ...$days) | At every minute on specific days | `$scheduler->addEvent($event)->days(2, 4, 6)` |
-| everyMinute() | At every minute | `$scheduler->addEvent($event)->everyMinute()` |
-| everyFiveMinutes() | At every 5th minute | `$scheduler->addEvent($event)->everyFiveMinutes()` |
-| everyTenMinutes() | At every 10th minute| `$scheduler->addEvent($event)->everyTenMinutes()` |
-| everyFifteenMinutes() | At every 15th minute | `$scheduler->addEvent($event)->everyFifteenMinutes()` |
-| everyThirtyMinutes() | At every 30th minute | `$scheduler->addEvent($event)->everyThirtyMinutes()` |
-| hourly() | At minute 1 | `$scheduler->addEvent($event)->hourly()` |
-| hourlyAt(int $minute) | At a specific minute | `$scheduler->addEvent($event)->hourlyAt(45)` |
-| monthly() | At 00:00 on day-of-month 1 | `$scheduler->addEvent($event)->monthly()` |
-| monthlyOn(int $day) | At 00:00 on a specific day-of-month | `$scheduler->addEvent($event)->monthlyOn(4)` |
-| on(int $day) | At every minute on a specific day-of-month | `$scheduler->addEvent($event)->on(1)` |
+| daily()| At 00:00 | `$scheduler->addJob($job)->daily()` |
+| dailyAt(int $hour, int $minute)| At a specific hour and minute | `$scheduler->addJob($job)->dailyAt(12, 30)` |
+| dailyTwice(int $firstHour, int $lastHour) | At minute 0 past two specific hours | `$scheduler->addJob($job)->dailyTwice(11, 23)` |
+| mondays() | At every minute on Monday | `$scheduler->addJob($job)->mondays()` |
+| tuesdays() | At every minute on Tuesday | `$scheduler->addJob($job)->tuesdays()` |
+| wednesdays() | At every minute on Wednesday | `$scheduler->addJob($job)->wednesdays()` |
+| thursdays() | At every minute on Thursday | `$scheduler->addJob($job)->thursdays()` |
+| fridays() | At every minute on Friday | `$scheduler->addJob($job)->fridays()` |
+| saturdays() | At every minute on Saturday | `$scheduler->addJob($job)->saturdays()` |
+| sundays() | At every minute on Sunday | `$scheduler->addJob($job)->sundays()` |
+| weekdays() | At every minute on Monday, Tuesday, Wednesday, Thursday, and Friday | `$scheduler->addJob($job)->weekdays()` |
+| weekends() | At every minute on Saturday and Sunday | `$scheduler->addJob($job)->weekends()` |
+| days(int ...$days) | At every minute on specific days | `$scheduler->addJob($job)->days(2, 4, 6)` |
+| everyMinute() | At every minute | `$scheduler->addJob($job)->everyMinute()` |
+| everyFiveMinutes() | At every 5th minute | `$scheduler->addJob($job)->everyFiveMinutes()` |
+| everyTenMinutes() | At every 10th minute| `$scheduler->addJob($job)->everyTenMinutes()` |
+| everyFifteenMinutes() | At every 15th minute | `$scheduler->addJob($job)->everyFifteenMinutes()` |
+| everyThirtyMinutes() | At every 30th minute | `$scheduler->addJob($job)->everyThirtyMinutes()` |
+| hourly() | At minute 1 | `$scheduler->addJob($job)->hourly()` |
+| hourlyAt(int $minute) | At a specific minute | `$scheduler->addJob($job)->hourlyAt(45)` |
+| monthly() | At 00:00 on day-of-month 1 | `$scheduler->addJob($job)->monthly()` |
+| monthlyOn(int $day) | At 00:00 on a specific day-of-month | `$scheduler->addJob($job)->monthlyOn(4)` |
+| on(int $day) | At every minute on a specific day-of-month | `$scheduler->addJob($job)->on(1)` |
 
-### Combining Event Frequencies
+### Combining Job Frequencies
 ```php
 // At minute 0 past hour 2 and 14 on Monday
-$scheduler->addEvent(new App\Events\SendReminderEvent())->dailyTwice(2, 14)->mondays();
+$scheduler->addJob(new App\Jobs\SendReminderJob())->dailyTwice(2, 14)->mondays();
 ```
 
 ```php
 // At every 15th minute on Friday
-$scheduler->addEvent(new App\Events\SendReminderEvent())->everyFifteenMinutes()->fridays();
+$scheduler->addJob(new App\Jobs\SendReminderJob())->everyFifteenMinutes()->fridays();
 ```
 
 ```php
 // At every minute on Tuesday, Thursday, and Saturday
-$scheduler->addEvent(new App\Events\SendReminderEvent())->everyMinute()->days(2, 4, 6);
+$scheduler->addJob(new App\Jobs\SendReminderJob())->everyMinute()->days(2, 4, 6);
 ```
 
 ```php
 // At minute 45 on Monday, Tuesday, Wednesday, Thursday, and Friday
-$scheduler->addEvent(new App\Events\SendReminderEvent())->hourlyAt(45)->weekdays();
+$scheduler->addJob(new App\Jobs\SendReminderJob())->hourlyAt(45)->weekdays();
 ```
 
 ```php
 // At minute 1 on Monday, Wednesday, and Friday
-$scheduler->addEvent(new App\Events\SendReminderEvent())->hourly()->days(1,3,5);
+$scheduler->addJob(new App\Jobs\SendReminderJob())->hourly()->days(1,3,5);
 ```

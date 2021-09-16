@@ -5,7 +5,7 @@ namespace Anddye\Scheduler;
 use Cron\CronExpression;
 use DateTimeInterface;
 
-abstract class Event
+abstract class AbstractJob
 {
     use Frequencies;
 
