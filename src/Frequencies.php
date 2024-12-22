@@ -264,7 +264,7 @@ trait Frequencies
      * @param array $value
      * @return self
      */
-    public function replaceIntoExpression(int $position, array $value): self
+    private function replaceIntoExpression(int $position, array $value): self
     {
         $expression = explode(' ', $this->getExpression());
 
@@ -281,7 +281,7 @@ trait Frequencies
      * @param string $expression
      * @return self
      */
-    public function setExpression(string $expression): self
+    private function setExpression(string $expression): self
     {
         $this->expression = $expression;
 
