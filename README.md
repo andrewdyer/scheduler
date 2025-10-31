@@ -1,4 +1,4 @@
-![Scheduler](https://raw.githubusercontent.com/andrewdyer/public-assets/refs/heads/main/images/covers/scheduler.png)
+![Scheduler](https://public-assets.andrewdyer.rocks/images/covers/scheduler.png)
 
 # Scheduler
 Schedule jobs with this framework-agnostic cron scheduler, which can be easily integrated into your existing project or run as a standalone command scheduler.
